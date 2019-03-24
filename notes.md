@@ -5,6 +5,10 @@
 * java
 * py4j
 * Spark
+* numpy
+* pandas
+* pyarrow
+
 
 ## Also you will need to export environmental variables
 
