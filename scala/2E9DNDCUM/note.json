@@ -1,0 +1,346 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# ETL I\n\n## Task - Transfrom json to parquet and convert String column to an array\n\n* load json dataset\n* look at the infered schema\n* define the schema explicitly\n* convert column tags to array of tags using\n * split\n * explode\n * regexp_replace\n * groupBy + collect_list\n * join",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:38:50.221",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eETL I\u003c/h1\u003e\n\u003ch2\u003eTask - Transfrom json to parquet and convert String column to an array\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eload json dataset\u003c/li\u003e\n  \u003cli\u003elook at the infered schema\u003c/li\u003e\n  \u003cli\u003edefine the schema explicitly\u003c/li\u003e\n  \u003cli\u003econvert column tags to array of tags using\u003c/li\u003e\n  \u003cli\u003esplit\u003c/li\u003e\n  \u003cli\u003eexplode\u003c/li\u003e\n  \u003cli\u003eregexp_replace\u003c/li\u003e\n  \u003cli\u003egroupBy + collect_list\u003c/li\u003e\n  \u003cli\u003ejoin\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553900925762_-872662185",
+      "id": "20190330-000845_938968815",
+      "dateCreated": "2019-03-30 00:08:45.762",
+      "dateStarted": "2019-04-03 17:38:50.235",
+      "dateFinished": "2019-04-03 17:38:51.251",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "import org.apache.spark.sql.functions.{col, desc, count, explode, split, regexp_replace, collect_list}\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, LongType, TimestampType}",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:40:01.490",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.functions.{col, desc, count, explode, split, regexp_replace, collect_list}\nimport org.apache.spark.sql.types.{StructType, StructField, StringType, LongType, TimestampType}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553900951591_-1830873799",
+      "id": "20190330-000911_858824139",
+      "dateCreated": "2019-03-30 00:09:11.591",
+      "dateStarted": "2019-04-03 17:40:01.518",
+      "dateFinished": "2019-04-03 17:40:02.948",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val base_path \u003d System.getProperty(\"user.dir\")\nval data_input_path \u003d  base_path + \"/data/questions-json\"\nval output_path \u003d base_path + \"/output/questions-transformed\"",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:46:38.976",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "base_path: String \u003d /Users/david.vrba/From-Simple-Transformations-to-Highly-Efficient-Jobs\ndata_input_path: String \u003d /Users/david.vrba/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/questions-json\noutput_path: String \u003d /Users/david.vrba/From-Simple-Transformations-to-Highly-Efficient-Jobs/output/questions-transformed\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1554306001490_456095223",
+      "id": "20190403-174001_2146218620",
+      "dateCreated": "2019-04-03 17:40:01.492",
+      "dateStarted": "2019-04-03 17:46:39.051",
+      "dateFinished": "2019-04-03 17:46:39.429",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### First let Spark infer the schema:",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:47:45.792",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eFirst let Spark infer the schema:\u003c/h4\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1554306459484_-1492643442",
+      "id": "20190403-174739_29767253",
+      "dateCreated": "2019-04-03 17:47:39.484",
+      "dateStarted": "2019-04-03 17:47:45.807",
+      "dateFinished": "2019-04-03 17:47:46.230",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val questionsDF \u003d spark\n    .read\n    .format(\"json\")\n    .option(\"path\", data_input_path)\n    .load()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:44:22.093",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "questionsDF: org.apache.spark.sql.DataFrame \u003d [accepted_answer_id: bigint, answers: bigint ... 9 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1554306201295_611433881",
+      "id": "20190403-174321_778849254",
+      "dateCreated": "2019-04-03 17:43:21.295",
+      "dateStarted": "2019-04-03 17:44:22.154",
+      "dateFinished": "2019-04-03 17:44:32.578",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "questionsDF.show(10, 10)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:45:30.032",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------+-------+----------+--------+-------------+-----------+-----+----------+----------+-------+-----+\n|accepted_answer_id|answers|      body|comments|creation_date|question_id|score|      tags|     title|user_id|views|\n+------------------+-------+----------+--------+-------------+-----------+-----+----------+----------+-------+-----+\n|              null|      1|\u003cp\u003eI wo...|       5|   2016-03...|     246588|    3|\u003cspecia...|Rest Ma...| 111904|   90|\n|              null|      2|\u003cp\u003eBefo...|       5|   2015-10...|     214758|    0|\u003celectr...|Why was...|  40394|   76|\n|              null|      1|\u003cp\u003eSupp...|      12|   2013-03...|      59458|    9|\u003celectr...|Do EM w...|  20629|  753|\n|              null|      2|\u003cp\u003eWhat...|       0|   2013-11...|      86252|    1|\u003celectr...|What is...|  33579| 2365|\n|            400813|      2|\u003cblockq...|       0|   2018-04...|     400758|    0|\u003chomewo...|How do ...| 181123|   45|\n|              null|      0|\u003cp\u003eMuch...|       3|   2015-10...|     213810|    1|\u003cepr-ex...|Schrodi...|  60176|   70|\n|              null|      0|\u003cp\u003eSupp...|       4|   2014-01...|      93196|    0|\u003chomewo...|Interna...|  37167|  101|\n|              9951|      3|\u003cp\u003eI be...|       0|   2011-05...|       9945|    6|\u003cmathem...|Are all...|   3460|  774|\n|              null|      1|\u003cp\u003eI ha...|       0|   2016-04...|     246710|    1|\u003csupers...|Number ...|  57770|  403|\n|            397513|      2|\u003cp\u003eFeyn...|       5|   2018-03...|     396436|    9|\u003cquantu...|Feynman...|  92708|  422|\n+------------------+-------+----------+--------+-------------+-----------+-----+----------+----------+-------+-----+\nonly showing top 10 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1554306257790_-1714062227",
+      "id": "20190403-174417_740110212",
+      "dateCreated": "2019-04-03 17:44:17.790",
+      "dateStarted": "2019-04-03 17:45:30.205",
+      "dateFinished": "2019-04-03 17:45:31.461",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "questionsDF.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:48:15.289",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- accepted_answer_id: long (nullable \u003d true)\n |-- answers: long (nullable \u003d true)\n |-- body: string (nullable \u003d true)\n |-- comments: long (nullable \u003d true)\n |-- creation_date: string (nullable \u003d true)\n |-- question_id: long (nullable \u003d true)\n |-- score: long (nullable \u003d true)\n |-- tags: string (nullable \u003d true)\n |-- title: string (nullable \u003d true)\n |-- user_id: long (nullable \u003d true)\n |-- views: long (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1554306281739_-1703181658",
+      "id": "20190403-174441_564880176",
+      "dateCreated": "2019-04-03 17:44:41.739",
+      "dateStarted": "2019-04-03 17:48:15.373",
+      "dateFinished": "2019-04-03 17:48:16.221",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val json_schema \u003d StructType(\n    Seq(\n        StructField(\"question_id\", LongType, true),\n        StructField(\"creation_date\", TimestampType, true),\n        StructField(\"title\", StringType, true),\n        StructField(\"body\", StringType, true),\n        StructField(\"tags\", StringType, true),\n        StructField(\"accepted_answer_id\", LongType, true),\n        StructField(\"answers\", LongType, true),\n        StructField(\"comments\", LongType, true),\n        StructField(\"user_id\", LongType, true),\n        StructField(\"views\", LongType, true)\n    )\n)",
+      "user": "anonymous",
+      "dateUpdated": "2019-04-03 17:59:50.337",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "json_schema: org.apache.spark.sql.types.StructType \u003d StructType(StructField(question_id,LongType,true), StructField(creation_date,TimestampType,true), StructField(title,StringType,true), StructField(body,StringType,true), StructField(tags,StringType,true), StructField(accepted_answer_id,LongType,true), StructField(answers,LongType,true), StructField(comments,LongType,true), StructField(user_id,LongType,true), StructField(views,LongType,true))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1554306495289_-323797026",
+      "id": "20190403-174815_447313441",
+      "dateCreated": "2019-04-03 17:48:15.289",
+      "dateStarted": "2019-04-03 17:59:50.424",
+      "dateFinished": "2019-04-03 17:59:51.414",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1554307101350_1338076777",
+      "id": "20190403-175821_762491600",
+      "dateCreated": "2019-04-03 17:58:21.351",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/solutions/etl/ETL I",
+  "id": "2E9DNDCUM",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

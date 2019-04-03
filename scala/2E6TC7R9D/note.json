@@ -1,0 +1,69 @@
+{
+  "paragraphs": [
+    {
+      "text": "spark.version",
+      "user": "anonymous",
+      "dateUpdated": "2019-03-30 00:12:34.299",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res1: String \u003d 2.4.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1553901146652_-296952094",
+      "id": "20190330-001226_271664552",
+      "dateCreated": "2019-03-30 00:12:26.652",
+      "dateStarted": "2019-03-30 00:12:34.329",
+      "dateFinished": "2019-03-30 00:13:25.823",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1553901154299_-708906397",
+      "id": "20190330-001234_1482432000",
+      "dateCreated": "2019-03-30 00:12:34.299",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/solutions/interactive-analytics/UDF I",
+  "id": "2E6TC7R9D",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
