@@ -6,6 +6,8 @@ This is a code base that serves as acompanying content for Spark Training lectur
 2. The internal processes of Spark SQL together with various performance tips
 3. APIs of ML Pipelines and GraphFrames for advanced analytics
 
+The course is offered in two languages: Python and Scala. The Python version is taught in Jupyter notebook environment, while Scala version in Apache Zeppelin. See the installation notes to see the complete stack used througout the course.
+
 For more information about the training you can see it's [website](http://www.datascript.cz/en/courses/open-source/apache-spark-from-simple-transformations-to-highly-efficient-jobs/) or you can contact directly the lecturer via [LinkedIn](http://www.linkedin.com/in/vrba-david).
 
 Data for the training are downloaded from the [Stack Exchange database](https://archive.org/details/stackexchange).
