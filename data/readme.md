@@ -1,3 +1,3 @@
 # Data origin
 
-The data in this directory is taken from the Physics Stack Exchange database. <a target="_blank" href="https://archive.org/details/stackexchange">Here</a> is the link to the latest dump. It is transformed from the original XML format to parquet and JSON which are suitable for the purpose of the training. Also only certain columns are being taken and they are customly renamed to make it consistent with the rest of the training.
+The data in this directory is taken from the Physics Stack Exchange database. [Here](https://archive.org/details/stackexchange) is the link to the latest dump. It is transformed from the original XML format to parquet and JSON which are suitable for the purpose of the training. Also only certain columns are being taken and they are customly renamed to make it consistent with the rest of the training.

@@ -1,4 +1,4 @@
-# From-Simple-Transformations-to-Highly-Efficient-Jobs
+# From Simple Transformations to Highly Efficient Jobs
 
 This is a code base that serves as acompanying content for Spark Training lectured and prepared by David Vrba. It is a two days course that covers Apache Spark from three different perspectives:
 
