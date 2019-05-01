@@ -4,3 +4,4 @@ metastore_db
 derby.log
 spark-warehouse
 *.crc
+test
