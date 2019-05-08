@@ -28,4 +28,11 @@ sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
 sudo -u postgres bash -c "psql -c \"CREATE USER hiveuser with encrypted password 'hiveuser'; \""
 sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES on database metastore to hiveuser; \""
 
+wget /home/david apache.miloslavbrada.cz/kafka/2.2.0/kafka_2.12-2.2.0.tgz
+tar xvf kafka_2.12-2.2.0.tgz
+
+echo 'broker.id=0' >> ~/kafka_2.12-2.2.0/config/server.properties
+echo 'listeners=PLAINTEXT://:9092' >> ~/kafka_2.12-2.2.0/config/server.properties
+echo 'log.dirs=/tmp/kafka-logs' >> ~/kafka_2.12-2.2.0/config/server.properties
+
 source ~/.bashrc
