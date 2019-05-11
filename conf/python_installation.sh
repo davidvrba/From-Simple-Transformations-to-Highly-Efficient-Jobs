@@ -11,6 +11,8 @@ pip3 install pyarrow
 pip3 install scipy
 pip3 install matplotlib
 pip3 install geopy
+pip3 install geopandas
+pip3 install descartes
 pip3 install jupyter
 
 wget /home/david https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
@@ -31,6 +33,9 @@ sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES on database metastore t
 
 sudo -u postgres bash -c "psql -c \" create table locations(name varchar, latitude decimal, longitude decimal); \""
 sudo -u postgres bash -c "psql -c \" COPY locations FROM '/home/david/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv' DELIMITERS ',' CSV HEADER; \""
+sudo -u postgres bash -c "psql -c \" create table user_clusters(user_id bigint, cluster_id integer); \""
+sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
+
 
 wget /home/david apache.miloslavbrada.cz/kafka/2.2.0/kafka_2.12-2.2.0.tgz
 tar xvf kafka_2.12-2.2.0.tgz
