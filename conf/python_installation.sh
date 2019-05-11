@@ -10,6 +10,7 @@ pip3 install pandas
 pip3 install pyarrow
 pip3 install scipy
 pip3 install matplotlib
+pip3 install geopy
 pip3 install jupyter
 
 wget /home/david apache.miloslavbrada.cz/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
