@@ -32,10 +32,12 @@
 * [Apache Zeppelin](https://zeppelin.apache.org/docs/latest/quickstart/install.html)
 
 #### On Ubuntu 18.04:
+* There is an installation script that you can use as follows:
 * sudo apt update
 * sudo apt-get install git
 * git clone https://github.com/davidvrba/From-Simple-Transformations-to-Highly-Efficient-Jobs.git
-* cd /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs
-* chmod +x install_python.sh
-* sudo ./install_python.sh
+* cd /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf
+* chmod +x python_installation.sh
+* cd /home/student
+* sudo ./From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
 
