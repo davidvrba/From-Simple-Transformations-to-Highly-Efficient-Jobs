@@ -39,6 +39,3 @@ cd /home/student
 sudo ./From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
 ```
 * Note: It assumes that your home folder is /home/student. If it is not, you need to change the script accordingly.
-
-### References
-* [Apache Zeppelin](https://zeppelin.apache.org/docs/latest/quickstart/install.html)
