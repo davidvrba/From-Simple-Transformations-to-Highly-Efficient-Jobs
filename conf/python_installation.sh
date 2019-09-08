@@ -24,6 +24,8 @@ echo 'export SPARK_HOME=/home/student/spark-2.4.4-bin-hadoop2.7' >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
+SPARK_HOME=/home/student/spark-2.4.4-bin-hadoop2.7
+
 wget -P /home/student/spark-2.4.4-bin-hadoop2.7/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
 
 apt --assume-yes install postgresql postgresql-contrib
@@ -37,3 +39,6 @@ sudo -u postgres bash -c "psql -c \" create table user_clusters(user_id bigint, 
 sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
 
 source ~/.bashrc
+
+cd From-Simple-Transformations-to-Highly-Efficient-Jobs
+PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py-files conf/py-install-test.py conf/py-install-test.py
