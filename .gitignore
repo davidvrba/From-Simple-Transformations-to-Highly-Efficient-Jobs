@@ -5,3 +5,5 @@ derby.log
 spark-warehouse
 *.crc
 test
+.log
+preparation
