@@ -16,7 +16,6 @@
 * matplotlib
 * geopandas
 * descartes
-* Apache Kafka
 * Postgresql
 
 ### For Scala code:

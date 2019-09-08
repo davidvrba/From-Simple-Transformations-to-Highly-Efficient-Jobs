@@ -15,16 +15,16 @@ pip3 install geopandas
 pip3 install descartes
 pip3 install jupyter
 
-wget /home/student https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
-tar xvf spark-2.4.0-bin-hadoop2.7.tgz
+wget /home/student https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
+tar xvf spark-2.4.4-bin-hadoop2.7.tgz
 
-cp /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/student/spark-2.4.0-bin-hadoop2.7/conf/
+cp /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/student/spark-2.4.4-bin-hadoop2.7/conf/
 
-echo 'export SPARK_HOME=/home/student/spark-2.4.0-bin-hadoop2.7' >> ~/.bashrc
+echo 'export SPARK_HOME=/home/student/spark-2.4.4-bin-hadoop2.7' >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
-wget -P /home/student/spark-2.4.0-bin-hadoop2.7/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
+wget -P /home/student/spark-2.4.4-bin-hadoop2.7/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
 
 apt --assume-yes install postgresql postgresql-contrib
 sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
@@ -35,13 +35,5 @@ sudo -u postgres bash -c "psql -c \" create table locations(name varchar, latitu
 sudo -u postgres bash -c "psql -c \" COPY locations FROM '/home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv' DELIMITERS ',' CSV HEADER; \""
 sudo -u postgres bash -c "psql -c \" create table user_clusters(user_id bigint, cluster_id integer); \""
 sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
-
-
-wget /home/student apache.miloslavbrada.cz/kafka/2.2.0/kafka_2.12-2.2.0.tgz
-tar xvf kafka_2.12-2.2.0.tgz
-
-echo 'broker.id=0' >> ~/kafka_2.12-2.2.0/config/server.properties
-echo 'listeners=PLAINTEXT://:9092' >> ~/kafka_2.12-2.2.0/config/server.properties
-echo 'log.dirs=/tmp/kafka-logs' >> ~/kafka_2.12-2.2.0/config/server.properties
 
 source ~/.bashrc
