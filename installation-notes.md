@@ -23,7 +23,6 @@
 * scala
 * Apache Spark
 * Apache Zeppelin
-* Apache Kafka
 * Postgresql
 
 ### On fresh Ubuntu 18.04 installation:
