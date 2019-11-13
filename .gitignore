@@ -7,3 +7,4 @@ spark-warehouse
 test
 .log
 preparation
+.DS_Store
