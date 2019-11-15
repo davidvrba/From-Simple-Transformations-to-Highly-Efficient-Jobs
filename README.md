@@ -13,10 +13,10 @@ The course is offered in Python language and Scala version is being prepared. Th
 * 50% theory, 50% hands on
 * Language: Python
 
-## Objectives of the training
-* Learn basic concepts of Apache Spark and distributed computing
-* Learn how to use DataFrame API in Spark for ETL jobs or ad hoc data analysis
-* Learn how the DataFrame API works under the hood
+## Objectives of the training is to learn:
+* Basic concepts of Apache Spark and distributed computing
+* How to use DataFrame API in Spark for ETL jobs or ad hoc data analysis
+* How the DataFrame API works under the hood
 * How the optimization engine works in Spark
 * What is happening under the cover when you send a query for execution
 * How is Spark application executed
@@ -52,23 +52,22 @@ The course is offered in Python language and Scala version is being prepared. Th
     * Analyzing data using DataFrame API
 6. Introduction to internal processes in Spark SQL
     * Catalyst - Optimization engine in Spark
-    * Logical Planning 
-    * Cost based optimizations
+    * Logical Planning
     * Physical Planning
+    * Cost based optimizations
 7. Execution Layer
     * Introduction to low level APIs: RDDs
     * Structure of Spark job (Stages, Tasks, Shuffle)
     * DAG Scheduler
     * Lifecycle of Spark application
 8. Lab III
-    * Cost based optimization and metastore
+    * Spark UI
 9. Introduction to performance tuning in Spark
     * Data persistence: caching, checkpointing
     * Most often bottlenecks in Spark applications
-    * Shuffle elimination
     * Bucketing & Partitioning
 10. Lab IV
-    * Query Optimizations
+    * Cost based optimization and metastore
 11. Introduction to advanced analytics in Spark
     * Basic concepts of ML Pipelines (native library for machine learning)
     * Basic concepts of GraphFrames (library for graph processing)
@@ -77,9 +76,7 @@ The course is offered in Python language and Scala version is being prepared. Th
 13. Structured Streaming
     * Basic concepts of streaming in Spark
     * Stateful vs stateless transformations
-    * Event time processing
     * What is watermark and how to use it to close the state
-    * Real time vs near real time processing
 14. Lab VI
     * Structured Streaming API
 
