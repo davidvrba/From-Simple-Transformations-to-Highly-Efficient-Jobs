@@ -15,18 +15,21 @@ pip3 install geopandas
 pip3 install descartes
 pip3 install jupyter
 
-wget /home/student https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
-tar xvf spark-2.4.4-bin-hadoop2.7.tgz
+wget /home/student https://archive.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz
+wget /home/student https://archive.apache.org/dist/spark/spark-3.0.0-preview2/spark-3.0.0-preview2-bin-hadoop2.7.tgz
+tar xvf spark-2.4.5-bin-hadoop2.7.tgz
+tar xvf spark-3.0.0-preview2-bin-hadoop2.7.tgz
 
-cp /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/student/spark-2.4.4-bin-hadoop2.7/conf/
+cp /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/student/spark-2.4.5-bin-hadoop2.7/conf/
+cp /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/student/spark-3.0.0-preview2-bin-hadoop2.7/conf/
 
 echo 'export SPARK_HOME=/home/student/spark-2.4.4-bin-hadoop2.7' >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
-SPARK_HOME=/home/student/spark-2.4.4-bin-hadoop2.7
+SPARK_HOME=/home/student/spark-2.4.5-bin-hadoop2.7
 
-wget -P /home/student/spark-2.4.4-bin-hadoop2.7/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
+wget -P /home/student/spark-2.4.5-bin-hadoop2.7/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
 
 apt --assume-yes install postgresql postgresql-contrib
 sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
