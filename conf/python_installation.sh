@@ -41,6 +41,8 @@ sudo -u postgres bash -c "psql -c \" COPY locations FROM '/home/student/From-Sim
 sudo -u postgres bash -c "psql -c \" create table user_clusters(user_id bigint, cluster_id integer); \""
 sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
 
+chmod +x From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/spark-cli.sh
+
 source ~/.bashrc
 
 cd From-Simple-Transformations-to-Highly-Efficient-Jobs
