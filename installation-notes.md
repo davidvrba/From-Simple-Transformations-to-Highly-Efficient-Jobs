@@ -34,6 +34,6 @@ git clone https://github.com/davidvrba/From-Simple-Transformations-to-Highly-Eff
 cd /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf
 chmod +x python_installation.sh
 cd /home/student
-sudo ./From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
+sudo ./From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh student
 ```
 * Note: It assumes that your home folder is /home/student. If it is not, you need to change the script accordingly.
