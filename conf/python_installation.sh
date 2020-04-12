@@ -26,7 +26,7 @@ tar xvf spark-3.0.0-preview2-bin-hadoop2.7.tgz
 cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/$student/spark-2.4.5-bin-hadoop2.7/conf/
 cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/$student/spark-3.0.0-preview2-bin-hadoop2.7/conf/
 
-echo 'export SPARK_HOME=/home/'$student'/spark-2.4.4-bin-hadoop2.7' >> ~/.bashrc
+echo 'export SPARK_HOME=/home/'$student'/spark-2.4.5-bin-hadoop2.7' >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
@@ -40,7 +40,7 @@ sudo -u postgres bash -c "psql -c \"CREATE USER hiveuser with encrypted password
 sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES on database metastore to hiveuser; \""
 
 sudo -u postgres bash -c "psql -c \" create table locations(name varchar, latitude decimal, longitude decimal); \""
-sudo -u postgres bash -c "psql -c \" COPY locations FROM '/home/'$student'/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv' DELIMITERS ',' CSV HEADER; \""
+sudo -u postgres bash -c "psql -c \" COPY locations FROM '/home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv' DELIMITERS ',' CSV HEADER; \""
 sudo -u postgres bash -c "psql -c \" create table user_clusters(user_id bigint, cluster_id integer); \""
 sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
 
