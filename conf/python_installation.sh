@@ -63,5 +63,6 @@ cat <<EOF >/home/ubuntu/.jupyter/jupyter_notebook_config.json
     }
 }
 EOF
-echo "To run jupyter call: jupyter notebook --no-browser --port=8080 --ip=public_dns"
+echo 'export PUBLIC_DNS='$2 >> ~/.bashrc
+echo "To run jupyter call: jupyter notebook --no-browser --port=8080 --ip=PUBLIC_DNS"
 fi
