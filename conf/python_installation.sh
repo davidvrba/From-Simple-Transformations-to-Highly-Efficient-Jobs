@@ -50,3 +50,9 @@ source ~/.bashrc
 
 cd From-Simple-Transformations-to-Highly-Efficient-Jobs
 PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py-files conf/py-install-test.py conf/py-install-test.py
+
+if [ $# -eq 2 ]
+  then
+    echo "Running jupyter server"
+    jupyter notebook --no-browser --port=8080 --ip=$2
+fi
