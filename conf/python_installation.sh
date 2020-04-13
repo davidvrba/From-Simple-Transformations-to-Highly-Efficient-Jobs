@@ -52,15 +52,16 @@ cd From-Simple-Transformations-to-Highly-Efficient-Jobs
 PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py-files conf/py-install-test.py conf/py-install-test.py
 
 if [ $# -eq 2 ]
-  then
-    #chmod -R 777 .local
-    #jupyter notebook --no-browser --port=8080 --ip=$2 --allow-root
-    jupyter notebook --generate-config
-    file=".jupyter/jupyter_notebook_config.json"
-    echo "{" > $file
-    echo "  \"NotebookApp\": {" > $file
-    echo "    \"password\": \"sha1:edbed63c759c:d42ef38adb8807b0b8152d000b4643dfdc0a8a26\"" >> $file
-    echo "  }" >> $file
-    echo "}" >> $file
-    echo "To run jupyter call: jupyter notebook --no-browser --port=8080 --ip=public_dns"
+then
+#chmod -R 777 .local
+#jupyter notebook --no-browser --port=8080 --ip=$2 --allow-root
+jupyter notebook --generate-config
+cat <<EOF >/home/ubuntu/.jupyter/jupyter_notebook_config.json
+{
+    "NotebookApp": {
+        "password": "sha1:edbed63c759c:d42ef38adb8807b0b8152d000b4643dfdc0a8a26"
+    }
+}
+EOF
+echo "To run jupyter call: jupyter notebook --no-browser --port=8080 --ip=public_dns"
 fi
