@@ -54,5 +54,7 @@ PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py
 if [ $# -eq 2 ]
   then
     echo "Running jupyter server"
-    jupyter notebook --no-browser --port=8080 --ip=$2
+    #chmod -R 777 .local
+    #jupyter notebook --no-browser --port=8080 --ip=$2 --allow-root
+    server_dns=$2
 fi
