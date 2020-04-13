@@ -53,8 +53,14 @@ PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py
 
 if [ $# -eq 2 ]
   then
-    echo "Running jupyter server"
     #chmod -R 777 .local
     #jupyter notebook --no-browser --port=8080 --ip=$2 --allow-root
-    server_dns=$2
+    jupyter notebook --generate-config
+    file=".jupyter/jupyter_notebook_config.json"
+    echo "{" > $file
+    echo "  \"NotebookApp\": {" > $file
+    echo "    \"password\": \"sha1:edbed63c759c:d42ef38adb8807b0b8152d000b4643dfdc0a8a26\"" >> $file
+    echo "  }" >> $file
+    echo "}" >> $file
+    echo "To run jupyter call: jupyter notebook --no-browser --port=8080 --ip=public_dns"
 fi
