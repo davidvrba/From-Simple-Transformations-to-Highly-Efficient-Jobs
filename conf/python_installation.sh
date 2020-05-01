@@ -24,11 +24,11 @@ tar xvf spark-3.0.0-preview2-bin-hadoop2.7.tgz
 
 cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/$student/spark-3.0.0-preview2-bin-hadoop2.7/conf/
 
-echo 'export SPARK_HOME=/home/'$student'/spark-3.0.0-preview2-bin-hadoop2.7' >> ~/.bashrc
+SPARK_HOME=/home/$student/spark-3.0.0-preview2-bin-hadoop2.7
+
+echo 'export SPARK_HOME='$SPARK_HOME >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
-
-SPARK_HOME=/home/$student/spark-3.0.0-preview2-bin-hadoop2.7
 
 wget -P /home/$student/spark-3.0.0-preview2-bin-hadoop2.7/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
 
@@ -46,21 +46,3 @@ source ~/.bashrc
 
 cd From-Simple-Transformations-to-Highly-Efficient-Jobs
 PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py-files conf/py-install-test.py conf/py-install-test.py
-
-if [ $# -eq 2 ]
-then
-#chmod -R 777 .local
-#jupyter notebook --no-browser --port=8080 --ip=$2 --allow-root
-jupyter notebook --generate-config
-cat <<EOF >/home/ubuntu/.jupyter/jupyter_notebook_config.json
-{
-    "NotebookApp": {
-        "password": "sha1:edbed63c759c:d42ef38adb8807b0b8152d000b4643dfdc0a8a26"
-    }
-}
-EOF
-echo 'export PUBLIC_DNS='$2 >> ~/.bashrc
-echo "To run jupyter call: jupyter notebook --no-browser --port=8080 --ip=PUBLIC_DNS"
-echo "sudo chmod 777 .jupyter"
-echo "source .bashrc"
-fi
