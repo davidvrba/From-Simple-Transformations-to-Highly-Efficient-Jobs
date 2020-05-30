@@ -57,28 +57,28 @@ The course is offered in Python language and Scala version is being prepared. Th
     * Caveats to be careful about
 7. Lab III
     * Saving data and working with tables
-7. Introduction to internal processes in Spark SQL
+8. Introduction to internal processes in Spark SQL
     * Catalyst - Optimization engine in Spark
     * Logical Planning
     * Physical Planning
-8. Execution Layer
+9. Execution Layer
     * Introduction to low level APIs: RDDs
     * Structure of Spark job (Stages, Tasks, Shuffle)
     * DAG Scheduler
     * Lifecycle of Spark application
-8. Lab III
+10. Lab III
     * Spark UI
-9. Introduction to performance tuning in Spark
+11. Introduction to performance tuning in Spark
     * Data persistence: caching, checkpointing
     * Bucketing & Partitioning
     * Most often bottlenecks in Spark applications
     * Optimization tips
-11. Introduction to advanced analytics in Spark
+12. Introduction to advanced analytics in Spark
     * Machine learning: basic concepts of ML Pipelines
     * Graph processing: basic concepts of GraphFrames library
-12. Lab V
+13. Lab V
     * Machine learning & Graph processing
-13. Structured Streaming
+14. Structured Streaming
     * Basic concepts of streaming in Spark
     * Stateful vs stateless transformations
     * Event time processing
