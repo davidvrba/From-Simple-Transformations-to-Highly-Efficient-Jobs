@@ -1,5 +1,5 @@
 """
-This test verifies 
+This test verifies
     - installation of spark
     - installation of postgress
     - data load to postgress
@@ -11,7 +11,8 @@ spark = (
     SparkSession
     .builder
     .appName('Installation-Test')
-    .enableHiveSupport()
+    .config("spark.sql.hive.metastore.version", "1.2.1")
+    .config("spark.sql.hive.metastore.jars", "maven")
     .getOrCreate()
 )
 
