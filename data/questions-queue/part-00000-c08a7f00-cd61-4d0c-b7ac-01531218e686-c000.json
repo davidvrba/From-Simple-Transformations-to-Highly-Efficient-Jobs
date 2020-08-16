@@ -1,0 +1,1 @@
+{"question_id":56721527,"creation_date":"2019-06-23T08:20:48.997+02:00","title":"Linux VFS: vfs_read(..., &offset) vs. vfs_llseek(..., pos): How to seek in a file from kernel module","r":903}

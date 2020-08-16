@@ -1,0 +1,1 @@
+{"question_id":18333238,"creation_date":"2013-08-20T12:55:06.340+02:00","title":"Can I use a single \"pthread_mutexattr_t\" attribute to initialize two different mutexes?","r":239}
