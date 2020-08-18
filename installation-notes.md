@@ -34,5 +34,3 @@ chmod +x /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf
 sudo /home/student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh student
 ```
 * Note: It assumes that your home folder is /home/student. If it is not, you need to change the commands accordingly.
-
-* For running jupyter on EC2 pass as second argument the public DNS
