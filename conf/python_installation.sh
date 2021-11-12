@@ -18,7 +18,7 @@ pip3 install geopandas
 pip3 install descartes
 pip3 install jupyter
 
-wget /home/$student https://archive.apache.org/dist/spark/spark-3.0.0/spark-3.2.0-bin-hadoop3.2.tgz
+wget /home/$student https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz
 tar xvf spark-3.2.0-bin-hadoop3.2.tgz
 
 cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/$student/spark-3.2.0-bin-hadoop3.2/conf/
