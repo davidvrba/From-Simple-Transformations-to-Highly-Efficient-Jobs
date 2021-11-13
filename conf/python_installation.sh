@@ -10,7 +10,7 @@ apt-get --assume-yes install scala
 pip3 install py4j
 pip3 install numpy
 pip3 install pandas
-pip3 install 'pyarrow==0.16.0'
+pip3 install 'pyarrow==1.0.0'
 pip3 install scipy
 pip3 install matplotlib
 pip3 install geopy
