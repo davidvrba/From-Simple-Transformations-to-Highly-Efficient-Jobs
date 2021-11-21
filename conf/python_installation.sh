@@ -13,9 +13,10 @@ pip3 install numpy
 pip3 install pandas
 pip3 install 'pyarrow==1.0.0'
 pip3 install scipy
-pip3 install matplotlib
+pip3 install matplotlib==3.0.0
+pip3 install --upgrade cython
 pip3 install geopy
-pip3 install geopandas
+pip3 install geopandas==0.9.0
 pip3 install descartes
 pip3 install jupyter
 
