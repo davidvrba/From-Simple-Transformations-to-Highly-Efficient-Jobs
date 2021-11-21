@@ -3,6 +3,9 @@
 student=$1
 
 apt-get  update
+apt install python3.7
+rm /usr/bin/python3
+ln -s python3.7 /usr/bin/python3
 apt --assume-yes install python3-pip
 apt-get --assume-yes install openjdk-8-jdk
 echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> ~/.bashrc
