@@ -20,18 +20,18 @@ pip3 install geopandas==0.9.0
 pip3 install descartes
 pip3 install jupyter
 
-wget /home/$student https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz
-tar xvf spark-3.2.0-bin-hadoop3.2.tgz
+wget /home/$student https://archive.apache.org/dist/spark/spark-3.3.0/spark-3.2.0-bin-hadoop3.2.tgz
+tar xvf spark-3.3.0-bin-hadoop3.2.tgz
 
-cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/$student/spark-3.2.0-bin-hadoop3.2/conf/
+cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive-site.xml /home/$student/spark-3.3.0-bin-hadoop3.2/conf/
 
-SPARK_HOME=/home/$student/spark-3.2.0-bin-hadoop3.2
+SPARK_HOME=/home/$student/spark-3.3.0-bin-hadoop3.2
 
 echo 'export SPARK_HOME='$SPARK_HOME >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
-wget -P /home/$student/spark-3.2.0-bin-hadoop3.2/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
+wget -P /home/$student/spark-3.3.0-bin-hadoop3.2/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
 
 apt --assume-yes install postgresql postgresql-contrib
 sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
