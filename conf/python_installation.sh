@@ -31,19 +31,7 @@ echo 'export SPARK_HOME='$SPARK_HOME >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
-wget -P /home/$student/spark-3.3.0-bin-hadoop3/jars https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
-
-apt --assume-yes install postgresql postgresql-contrib
-sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
-sudo -u postgres bash -c "psql -c \"CREATE USER hiveuser with encrypted password 'hiveuser'; \""
-sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES on database metastore to hiveuser; \""
-
-sudo -u postgres bash -c "psql -c \" create table locations(name varchar, latitude decimal, longitude decimal); \""
-sudo -u postgres bash -c "psql -c \" COPY locations FROM '/home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv' DELIMITERS ',' CSV HEADER; \""
-sudo -u postgres bash -c "psql -c \" create table user_clusters(user_id bigint, cluster_id integer); \""
-sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
-
+wget -P /home/$student/spark-3.3.0-bin-hadoop3/jars https://jdbc.postgresql.org/download/postgresql-42.4.0.jar
 source ~/.bashrc
 
 cd From-Simple-Transformations-to-Highly-Efficient-Jobs
-PYSPARK_PYTHON=/usr/bin/python3 $SPARK_HOME/bin/spark-submit --master local --py-files conf/py-install-test.py conf/py-install-test.py
