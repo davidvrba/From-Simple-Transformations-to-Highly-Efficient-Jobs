@@ -5,6 +5,7 @@ derby.log
 spark-warehouse
 *.crc
 test
+tests
 .log
 preparation
 .DS_Store
