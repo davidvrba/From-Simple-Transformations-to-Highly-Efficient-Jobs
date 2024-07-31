@@ -7,16 +7,16 @@ apt --assume-yes install python3-pip
 apt-get --assume-yes install openjdk-8-jdk
 echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> ~/.bashrc
 apt-get --assume-yes install scala
-pip3 install py4j
-pip3 install numpy
-pip3 install pandas
-pip3 install pyarrow
-pip3 install scipy
-pip3 install matplotlib
-pip3 install geopy
-pip3 install geopandas
-pip3 install descartes
-pip3 install jupyter
+pip3 install py4j --break-system-packages
+pip3 install numpy --break-system-packages
+pip3 install pandas --break-system-packages
+pip3 install pyarrow --break-system-packages
+pip3 install scipy --break-system-packages
+pip3 install matplotlib --break-system-packages
+pip3 install geopy --break-system-packages
+pip3 install geopandas --break-system-packages
+pip3 install descartes --break-system-packages
+pip3 install jupyter --break-system-packages
 
 wget /home/$student https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
 tar xvf spark-3.5.1-bin-hadoop3.tgz
