@@ -16,6 +16,9 @@ pip3 install matplotlib --break-system-packages
 pip3 install geopy --break-system-packages
 pip3 install geopandas --break-system-packages
 pip3 install descartes --break-system-packages
+
+apt remove python3-jsonschema
+pip3 install jsonschema --break-system-packages
 pip3 install jupyter --break-system-packages
 
 wget /home/$student https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz
