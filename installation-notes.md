@@ -21,7 +21,6 @@
 ### On fresh Ubuntu 22.04 installation:
 * There is an installation script that you can use for Python installation as follows (look inside conf/python_installation.sh to see what is being installed):
 ```
-sudo apt-get install git
 git clone https://github.com/davidvrba/From-Simple-Transformations-to-Highly-Efficient-Jobs.git
 chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
 sudo /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh ubuntu

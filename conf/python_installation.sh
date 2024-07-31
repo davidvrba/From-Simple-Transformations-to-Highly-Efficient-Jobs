@@ -25,6 +25,7 @@ cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/hive
 
 SPARK_HOME=/home/$student/spark-3.5.1-bin-hadoop3
 
+echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
 echo 'export SPARK_HOME='$SPARK_HOME >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
