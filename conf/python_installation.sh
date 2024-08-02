@@ -17,7 +17,7 @@ pip3 install geopy --break-system-packages
 pip3 install geopandas --break-system-packages
 pip3 install descartes --break-system-packages
 
-apt remove python3-jsonschema
+apt --assume-yes remove python3-jsonschema
 pip3 install jsonschema --break-system-packages
 pip3 install jupyter --break-system-packages
 
@@ -32,6 +32,14 @@ echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
 echo 'export SPARK_HOME='$SPARK_HOME >> ~/.bashrc
 echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
+
+apt --assume-yes install postgresql postgresql-contrib
+sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
+sudo -u postgres bash -c "psql -c \"CREATE USER hiveuser with encrypted password 'hiveuser'; \""
+sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES on database metastore to hiveuser; \""
+sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
+mv /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv /var/lib/postgresql/
+sudo -u postgres bash -c "psql -c \" COPY locations FROM '/var/lib/postgresql/locations.csv' DELIMITERS ',' CSV HEADER; \""
 
 wget -P /home/$student/spark-3.5.1-bin-hadoop3/jars https://jdbc.postgresql.org/download/postgresql-42.4.0.jar
 source ~/.bashrc
