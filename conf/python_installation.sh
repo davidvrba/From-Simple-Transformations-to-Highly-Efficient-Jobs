@@ -37,6 +37,14 @@ apt --assume-yes install postgresql postgresql-contrib
 sudo -u postgres bash -c "psql -c \"CREATE DATABASE metastore; \""
 sudo -u postgres bash -c "psql -c \"CREATE USER hiveuser with encrypted password 'hiveuser'; \""
 sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES on database metastore to hiveuser; \""
+
+sudo -u postgres bash -c "psql -c \"grant all privileges on schema public to hiveuser; \""
+sudo -u postgres bash -c "psql -c \"grant create, usage on schema public to hiveuser; \""
+sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO hiveuser; \""
+sudo -u postgres bash -c "psql -c \"GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO hiveuser; \""
+sudo -u postgres bash -c "psql -c \"ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON TABLES TO hiveuser; \""
+sudo -u postgres bash -c "psql -c \"ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON SEQUENCES TO hiveuser; \""
+
 sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
 mv /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv /var/lib/postgresql/
 sudo -u postgres bash -c "psql -c \" COPY locations FROM '/var/lib/postgresql/locations.csv' DELIMITERS ',' CSV HEADER; \""
