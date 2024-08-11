@@ -34,21 +34,7 @@ echo 'export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH' >> ~/.bashrc
 echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 
 apt --assume-yes install postgresql postgresql-contrib
-sudo -u postgres bash -c 'psql -c "CREATE DATABASE metastore;"'
-sudo -u postgres bash -c "psql -c \"CREATE USER hiveuser with encrypted password 'hiveuser'; \""
-sudo -u postgres bash -c 'psql -c "GRANT ALL PRIVILEGES on database metastore to hiveuser;"'
-
-sudo -u postgres bash -c 'psql -c "grant all privileges on schema public to hiveuser;"'
-sudo -u postgres bash -c 'psql -c "grant create, usage on schema public to hiveuser;"'
-sudo -u postgres bash -c 'psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO hiveuser;"'
-sudo -u postgres bash -c 'psql -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO hiveuser;"'
-sudo -u postgres bash -c 'psql -c "ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON TABLES TO hiveuser;"'
-sudo -u postgres bash -c 'psql -c "ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON SEQUENCES TO hiveuser;"'
-
-sudo -u postgres bash -c "psql -c \"ALTER USER postgres PASSWORD 'postgres'; \" "
 mv /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv /var/lib/postgresql/
-sudo -u postgres bash -c "psql -c \" COPY locations FROM '/var/lib/postgresql/locations.csv' DELIMITERS ',' CSV HEADER; \""
-
 wget -P /home/$student/spark-3.5.1-bin-hadoop3/jars https://jdbc.postgresql.org/download/postgresql-42.4.0.jar
 source ~/.bashrc
 
