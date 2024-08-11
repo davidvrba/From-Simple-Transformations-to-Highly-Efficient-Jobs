@@ -2,7 +2,7 @@
 
 This is a code base that serves as acompanying content for Spark Training lectured and prepared by David Vrba. It is a two days course that covers Apache Spark from three different perspectives:
 
-1. The core part is the programming interface of DataFrame API (in Spark 3.0)
+1. The core part is the programming interface of DataFrame API (in Spark 3.5)
 2. The internal processes of Spark SQL and execution layer together with various performance tips
 3. APIs of ML Pipelines and GraphFrames for advanced analytics
 
@@ -24,7 +24,7 @@ The course is offered in Python language and Scala version is being prepared. Th
 * Basic concepts of ML Pipelines library for machine learning
 * Basic concepts of GraphFrames library for graph processing
 * How to process data in (nearly) real time in Spark (Structured Streaming)
-* News in Spark 2.3, 2.4, 3.0
+* News in Spark 3.0, 3.5
 
 
 ## Training Outline
