@@ -25,11 +25,11 @@
 git clone https://github.com/davidvrba/From-Simple-Transformations-to-Highly-Efficient-Jobs.git
 chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
 chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/export_variables.sh
-chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/setup_metastore.sh
+chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/setup_hive_metastore.sh
 sudo /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh ubuntu
 /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/export_variables.sh
 source ~/.bashrc
-/home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/setup_metastore.sh
+/home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/setup_hive_metastore.sh
 
 ```
 * Note: It assumes that your home folder is /home/ubuntu. If it is not, you need to change the commands accordingly.
