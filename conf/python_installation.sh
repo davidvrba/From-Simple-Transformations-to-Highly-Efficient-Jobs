@@ -38,7 +38,7 @@ mv /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locati
 wget -P /home/$student/spark-3.5.1-bin-hadoop3/jars https://jdbc.postgresql.org/download/postgresql-42.4.0.jar
 
 mkdir /home/ubuntu/.jupyter
-cp /home/$student/spark-workshop/conf/jupyter_notebook_config.py /home/$student/.jupyter/
+cp /home/$student/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/jupyter_notebook_config.py /home/$student/.jupyter/
 
 chown -R ubuntu:ubuntu /home/ubuntu/.jupyter
 

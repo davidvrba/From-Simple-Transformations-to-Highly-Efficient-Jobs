@@ -33,3 +33,10 @@ source ~/.bashrc
 
 ```
 * Note: It assumes that your home folder is /home/ubuntu. If it is not, you need to change the commands accordingly.
+* Alternatively you can just run install_all script as follows:
+```
+git clone https://github.com/davidvrba/From-Simple-Transformations-to-Highly-Efficient-Jobs.git
+chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
+source ~/.bashrc
+```
+
