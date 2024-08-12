@@ -36,6 +36,12 @@ echo 'export PYSPARK_PYTHON=python3' >> ~/.bashrc
 apt --assume-yes install postgresql postgresql-contrib
 mv /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/data/locations.csv /var/lib/postgresql/
 wget -P /home/$student/spark-3.5.1-bin-hadoop3/jars https://jdbc.postgresql.org/download/postgresql-42.4.0.jar
+
+mkdir /home/ubuntu/.jupyter
+cp /home/$student/spark-workshop/conf/jupyter_notebook_config.py /home/$student/.jupyter/
+
+chown -R ubuntu:ubuntu /home/ubuntu/.jupyter
+
 source ~/.bashrc
 
 cd From-Simple-Transformations-to-Highly-Efficient-Jobs
