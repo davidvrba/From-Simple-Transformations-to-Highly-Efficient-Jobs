@@ -36,7 +36,8 @@ source ~/.bashrc
 * Alternatively you can just run install_all script as follows:
 ```
 git clone https://github.com/davidvrba/From-Simple-Transformations-to-Highly-Efficient-Jobs.git
-chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/python_installation.sh
+chmod +x /home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/install_all.sh
+/home/ubuntu/From-Simple-Transformations-to-Highly-Efficient-Jobs/conf/install_all.sh
 source ~/.bashrc
 ```
 
